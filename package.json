@@ -2,7 +2,7 @@
   "name": "tageshass",
   "version": "0.0.0",
   "description": "STMP server with a JSON interface for email testing purposes",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "grunt test"
   },
@@ -21,6 +21,20 @@
   "gitHead": "3f99b9b4da040cc4a46b3732743e2523ad37918b",
   "dependencies": {
     "simplesmtp": "0.2.x",
-    "express": "3.1.x"
+    "express": "3.1.x",
+    "mailparser": "0.2.x",
+    "lodash": "1.0.x"
+  },
+  "devDependencies": {
+    "chai": "1.4.x",
+    "grunt": "0.4.x",
+    "grunt-coffeelint": "git://github.com/vojtajina/grunt-coffeelint.git",
+    "grunt-contrib-jshint": "0.1.1rc6",
+    "grunt-contrib-watch": "0.2.x",
+    "grunt-simple-mocha": "0.3.x",
+    "mocha": "1.8.x",
+    "sinon": "1.5.x",
+    "sinon-chai": "2.3.x",
+    "node-uuid": "1.4.x"
   }
 }
