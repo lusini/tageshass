@@ -47,21 +47,21 @@ describe 'SMTP server', ->
 
 
     it 'emits exactly one event with the message', (done) ->
-      server.start()
-      sinon.stub(server, 'emit')
-      sender = 'sender@test.de'
-      recipient = 'receiver@test.de'
-      sendMail sender, [recipient], (err) ->
-        expect(err).to.equal(null)
-        expect(server.emit).to.have.been.calledOnce
-        expect(server.emit).to.have.been.calledWith('message', sinon.match({
-          envelope: {
-            from: sender,
-            to: [recipient]
-          },
-          message: {
-            text: 'body'
-          }
-        }))
-        done()
+      server.start ->
+        sinon.stub(server, 'emit')
+        sender = 'sender@test.de'
+        recipient = 'receiver@test.de'
+        sendMail sender, [recipient], (err) ->
+          expect(err).to.equal(null)
+          expect(server.emit).to.have.been.calledOnce
+          expect(server.emit).to.have.been.calledWith('message', sinon.match({
+            envelope: {
+              from: sender,
+              to: [recipient]
+            },
+            message: {
+              text: 'body'
+            }
+          }))
+          done()
 
