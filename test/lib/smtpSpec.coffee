@@ -22,7 +22,11 @@ describe 'SMTP server', ->
       }
 
     client.on 'message', ->
-      client.end('this is a test body')
+      client.write('From: ' + from + '\n')
+      client.write('To: ' + to + '\n')
+      client.write('Subject: ' + 'My Subject' + '\n')
+      client.write('\n')
+      client.end('body')
 
     client.on 'ready', (success, response) ->
       if (success)
@@ -30,13 +34,22 @@ describe 'SMTP server', ->
       return done(success)
 
 
-  it 'emits exactly one event for one recipient', (done) ->
+  it 'emits exactly one event with the message', (done) ->
     sinon.stub(server, 'emit')
+    sender = 'sender@test.de'
     recipient = 'receiver@test.de'
-    sendMail 'sender@test.de', [recipient], (err) ->
+    sendMail sender, [recipient], (err) ->
       expect(err).to.equal(null)
       expect(server.emit).to.have.been.calledOnce
-      expect(server.emit).to.have.been.calledWith('message', recipient)
+      expect(server.emit).to.have.been.calledWith('message', sinon.match({
+        envelope: {
+          from: sender,
+          to: [recipient]
+        },
+        message: {
+          text: 'body'
+        }
+      }))
       done()
 
   it 'exposes its port', ->
