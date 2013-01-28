@@ -1,0 +1,26 @@
+{
+  "name": "tageshass",
+  "version": "0.0.0",
+  "description": "STMP server with a JSON interface for email testing purposes",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lusini/tageshass.git"
+  },
+  "keywords": [
+    "smtp",
+    "json",
+    "testing"
+  ],
+  "author": "",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "3f99b9b4da040cc4a46b3732743e2523ad37918b",
+  "dependencies": {
+    "simplesmtp": "0.2.x",
+    "express": "3.1.x"
+  }
+}
