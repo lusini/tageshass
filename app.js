@@ -1,6 +1,13 @@
 'use strict';
-var SMTPServer = require('./lib/smtp')
-  , smtpServer = new SMTPServer();
+var events = require('events')
+  , SMTPServer = require('./lib/smtp')
+  , Store = require('./lib/store')
+  , smtpServer = new SMTPServer()
+  , queryEmitter = new events.EventEmitter() // TODO: dummy
+  , store = new Store(smtpServer, queryEmitter)
+  ;
+
+/*jshint unused:false */ //TODO: store is not used yet
 smtpServer.start(function (err) {
   if (err) {
     console.log('Failed to start SMTP Server:' + err);

@@ -23,7 +23,8 @@
     "simplesmtp": "0.2.x",
     "express": "3.1.x",
     "mailparser": "0.2.x",
-    "lodash": "1.0.x"
+    "lodash": "1.0.x",
+    "sinon": "1.5.x"
   },
   "devDependencies": {
     "chai": "1.4.x",
@@ -33,7 +34,6 @@
     "grunt-contrib-watch": "0.2.x",
     "grunt-simple-mocha": "0.3.x",
     "mocha": "1.8.x",
-    "sinon": "1.5.x",
     "sinon-chai": "2.3.x",
     "node-uuid": "1.4.x"
   }
