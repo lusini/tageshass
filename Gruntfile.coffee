@@ -57,11 +57,11 @@ module.exports = (grunt) ->
     watch: {
       js: {
         files: jsFiles,
-        tasks: ['jshint', 'test']
+        tasks: ['test']
       }
       coffee: {
         files: coffeeFiles,
-        tasks: ['coffeelint', 'test']
+        tasks: [ 'test']
       }
     }
   })
